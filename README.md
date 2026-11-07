@@ -61,26 +61,39 @@ This repository archives the complete, step-by-step preregistered experimental c
 
 ---
 
+### 4. Phase 4: Replication on Second Backend (`docs/PREREGISTRATION-qpu_vs_rng_replication.md`)
+* **Design & Lock-in (Registered in advance of Phase 3 completion):**
+  - Backend: `ibm_kingston` (156q Heron r2).
+  - Fresh independent seed: `20261109`.
+  - Algorithmic chain selection via `scripts/select_chain.py` (lowest readout error linear chain $\le 0.03$ with reported 2Q gate errors). Selected: `[48, 49, 50]` (mean readout error $0.47\%$).
+* **Combined Decision Rule:** The QPU/RNG difference is claimed **only if** $H_1$ is supported in Phase 3 **and** in this replication, **with the same sign of mean $D$**. Any other outcome upholds textbook quantum mechanics.
+
+---
+
 ## 📁 Repository Layout
 
 ```
 ├── docs/
 │   ├── PREREGISTRATION-c_live.md                 # Phase 1 protocol (interleaved sequential)
 │   ├── PREREGISTRATION-c_live_simultaneous.md    # Phase 2 protocol (simultaneous 5-qubit spectator)
-│   └── PREREGISTRATION-qpu_vs_rng.md             # Phase 3 protocol (QPU vs noise-matched RNG)
+│   ├── PREREGISTRATION-qpu_vs_rng.md             # Phase 3 protocol (QPU vs noise-matched RNG)
+│   └── PREREGISTRATION-qpu_vs_rng_replication.md # Phase 4 protocol (replication on ibm_kingston)
 ├── scripts/
 │   ├── c_live_interleaved.py                     # Phase 1 runner
 │   ├── c_live_analyze.py                         # Phase 1 analyzer
 │   ├── c_live_simultaneous.py                    # Phase 2 runner
 │   ├── c_live_simultaneous_analyze.py            # Phase 2 analyzer
-│   ├── qpu_vs_rng.py                             # Phase 3 runner
-│   ├── qpu_vs_rng_analyze.py                     # Phase 3 analyzer
+│   ├── qpu_vs_rng.py                             # Phase 3 & 4 runner
+│   ├── qpu_vs_rng_analyze.py                     # Phase 3 & 4 analyzer
+│   ├── select_chain.py                           # Algorithmic optimal chain selector
 │   └── fluid_sim.py                              # GPE 2D split-step Fourier solver
 └── measurement_raw/
     ├── c_live/
     │   └── 20261107T012230Z/                     # Phase 1: 120-job live Heron QPU dataset & analysis.json
-    └── c_live_simultaneous/
-        └── 20261107T023824Z/                     # Phase 2: Complete 120-job live Heron QPU dataset & analysis.json
+    ├── c_live_simultaneous/
+    │   └── 20261107T023824Z/                     # Phase 2: Complete 120-job live Heron QPU dataset & analysis.json
+    └── qpu_vs_rng_replication/
+        └── layout_selection.json                 # Algorithmic selection output for ibm_kingston
 ```
 
 ---

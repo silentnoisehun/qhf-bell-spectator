@@ -1,0 +1,35 @@
+{
+  "preregistration": "docs/PREREGISTRATION-qpu_vs_rng.md",
+  "tag": "20261107T032204Z",
+  "backend": "ibm_marrakesh",
+  "physical_qubits": [
+    53,
+    54,
+    55
+  ],
+  "replicates": 20,
+  "iterations": 40,
+  "shots": 1024,
+  "gpe_steps_per_iter": 50,
+  "seed": 20261108,
+  "dry_run": false,
+  "calibration_start": "2026-11-07 03:47:47+01:00",
+  "calibration_snapshot": {
+    "q53": {
+      "readout_error": 0.017578125,
+      "t1_us": 265.8347308518093,
+      "t2_us": 246.34152976447808
+    },
+    "q54": {
+      "readout_error": 0.0048828125,
+      "t1_us": 221.65921768169454,
+      "t2_us": 304.06726624324074
+    },
+    "q55": {
+      "readout_error": 0.00439453125,
+      "t1_us": 219.2771781360737,
+      "t2_us": 74.12447128661756
+    }
+  },
+  "start_time": "2026-11-07T03:22:13.178927+00:00"
+}
