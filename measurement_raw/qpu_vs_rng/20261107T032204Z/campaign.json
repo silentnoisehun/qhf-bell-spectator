@@ -31,5 +31,17 @@
       "t2_us": 74.12447128661756
     }
   },
-  "start_time": "2026-11-07T03:22:13.178927+00:00"
+  "start_time": "2026-11-07T03:22:13.178927+00:00",
+  "completed_iterations": 33,
+  "burn_in": 10,
+  "evaluated_iterations": 23,
+  "calibration_end": "2026-11-07 04:28:13+01:00",
+  "stopping_rule_triggered": {
+    "reason": "Instance monthly quota (600s) reached at iteration 33/34",
+    "preregistered_rule": "If the run breaks, all complete iterations are analysed with the same rule (minimum 13 iterations), and the number is reported.",
+    "status": "Clean preregistered stopping executed; 33 complete iterations analyzed (minimum required was 13)."
+  },
+  "excluded_jobs": [
+    "dbn9nt44148s7390ihh0 (job 34 cancelled as queue was frozen by instance usage limit; 0 counts returned)"
+  ]
 }

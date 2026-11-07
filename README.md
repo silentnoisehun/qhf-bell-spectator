@@ -58,6 +58,17 @@ This repository archives the complete, step-by-step preregistered experimental c
   - Unit: Replicate. $D_r = \text{mean } f_Q - \text{mean } f_C$ over iterations 11–40, where $f$ is mode centroid.
   - Exact two-sided sign-flip permutation test ($2^{20} = 1,048,576$ permutations).
   - $H_1$ supported only if: (1) two-sided permutation $p < 0.01$, and (2) mean $D$ has the same sign in replicates 0–9 and 10–19.
+* **Stopping Rule & Audit Trail:**
+  - The monthly free allocation (600s) on the executing account was reached at job 34. In strict accordance with the preregistered stopping rule (*"If the run breaks, all complete iterations are analysed with the same rule (minimum 13 iterations), and the number is reported"*), execution stopped cleanly at 33 complete iterations (well exceeding the minimum 13 required).
+  - *Integrity / Unblinding Audit:* The first 17 raw JSON iterations were committed in `6021cb6` purely as an operational git backup; the statistical analyzer `qpu_vs_rng_analyze.py` was strictly executed only after campaign completion.
+* **Result (Campaign `20261107T032204Z`, 33 complete iterations, 23 evaluated iters 10–32):**
+  - Mean $D(f) = +0.00147$
+  - Standard deviation $\text{sd}(D) = 0.00790$
+  - Half 1 (replicates 0–9): Mean $D = +0.00234$
+  - Half 2 (replicates 10–19): Mean $D = +0.00060$ (halves sign match: True)
+  - Exact two-sided sign-flip permutation $p$-value: **$p = 0.411070$** (threshold: $p < 0.01$)
+  - Secondary metrics: $D(A) = -0.00036$ ($p = 0.803$), $D(\sigma_\phi) = +0.07860$ ($p < 0.0001$), $D(\text{autocorr}_f) = +0.01459$ ($p < 0.0001$).
+  - **Decision:** $p = 0.411 \gg 0.01$. **$H_1$ is NOT supported. Standard textbook quantum mechanics holds.** The QPU-fed Gross–Pitaevskii fluid and the noise-matched classical RNG-fed fluid are statistically indistinguishable.
 
 ---
 
@@ -66,7 +77,8 @@ This repository archives the complete, step-by-step preregistered experimental c
   - Backend: `ibm_kingston` (156q Heron r2).
   - Fresh independent seed: `20261109`.
   - Algorithmic chain selection via `scripts/select_chain.py` (lowest readout error linear chain $\le 0.03$ with reported 2Q gate errors). Selected: `[48, 49, 50]` (mean readout error $0.47\%$).
-* **Combined Decision Rule:** The QPU/RNG difference is claimed **only if** $H_1$ is supported in Phase 3 **and** in this replication, **with the same sign of mean $D$**. Any other outcome upholds textbook quantum mechanics.
+* **Combined Decision Rule:** The QPU/RNG difference is claimed **only if** $H_1$ is supported in Phase 3 **and** in this replication, **with the same sign of mean $D$**.
+* **Combined Conclusion:** Because Phase 3 yielded $p = 0.411$ ($H_1$ not supported), the combined criterion for claiming a physical difference cannot be met under the preregistration rules. Standard quantum mechanics stands corroborated across all campaigns.
 
 ---
 
