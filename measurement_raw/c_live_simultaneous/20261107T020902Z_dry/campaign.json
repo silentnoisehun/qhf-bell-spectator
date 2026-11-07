@@ -1,0 +1,21 @@
+{
+  "campaign": "20261107T020902Z",
+  "backend": "dry-run-statevector",
+  "dry_run": true,
+  "blocks": 60,
+  "shots": 2048,
+  "gpe_steps": 50,
+  "seed": 20261107,
+  "layout": [
+    51,
+    52,
+    53,
+    54,
+    55
+  ],
+  "calibration": {
+    "dry_run_noise": 0.005
+  },
+  "preregistration": "docs/PREREGISTRATION-c_live_simultaneous.md",
+  "amendment": 2
+}
