@@ -1,0 +1,44 @@
+{
+  "campaign": "20261107T023824Z",
+  "backend": "ibm_marrakesh",
+  "dry_run": false,
+  "blocks": 60,
+  "shots": 2048,
+  "gpe_steps": 50,
+  "seed": 20261107,
+  "layout": [
+    51,
+    52,
+    53,
+    54,
+    55
+  ],
+  "calibration": {
+    "readout_error": {
+      "51": 0.1591796875,
+      "52": 0.0283203125,
+      "53": 0.017578125,
+      "54": 0.0048828125,
+      "55": 0.00439453125
+    },
+    "gate_error_2q": {
+      "(51,52)": 0.0023406113526202033,
+      "(52,53)": 0.002122894244635104,
+      "(53,54)": 0.00126597662326422,
+      "(54,55)": 0.0012720817958436215
+    },
+    "bell_pair_qubits": [
+      54,
+      55
+    ],
+    "bell_pair_readout_sum": 0.00927734375,
+    "bell_pair_2q_gate_error": 0.0012720817958436215
+  },
+  "preregistration": "docs/PREREGISTRATION-c_live_simultaneous.md",
+  "amendment": 2,
+  "calibration_timestamps": {
+    "start": "2026-11-07 03:36:25+01:00",
+    "end": "2026-11-07 03:47:47+01:00",
+    "mid_run_update": "2026-11-07 03:47:47+01:00 (occurred between block 35 and 38; paired F/N blocks design guarantees unbiased difference d)"
+  }
+}
