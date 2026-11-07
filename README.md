@@ -41,18 +41,18 @@ This repository archives the complete, step-by-step preregistered experimental c
   - Standard deviation $s = 0.00399$ (shot-noise limited at 2048 shots)
   - $t = 0.4108$, $p_{\text{one-sided}} = 0.341$, $p_{\text{two-sided}} = 0.683$
   - First-half mean diff (blocks 0–29): $-0.00024$; Second-half mean diff (blocks 30–59): $+0.00067$
-  - **In-situ Calibration Tracking:** Initial calibration at `03:36:25 CET`. An automatic Heron calibration update occurred at `03:47:47 CET` (between blocks 35 and 38). Due to the randomized interleaved $(F_k, N_k)$ paired design, the difference $d$ remained strictly unbiased throughout the entire run.
+  - **In-situ Calibration & Queue Sensitivity:** Initial calibration at `02:36:25 UTC` (`03:36:25 CET`). An automatic Heron calibration update occurred at `02:47:47 UTC` (`03:47:47 CET`), corresponding to block 33. In block 38, arm N waited 18 minutes in the backend queue after arm F due to transient backend scheduling. Excluding blocks 33–38 entirely (leaving 54 paired blocks): $d = -0.00017 \approx -0.0002$, $s = 0.00346$, $t = -0.365$, $p = 0.72$. The result is completely invariant to queue latency and calibration shifts.
   - **Decision:** All criteria for $H_1$ ($\Delta \ge 0.003, p < 0.01$, sign consistency) failed. **$H_1$ is NOT supported. Standard textbook quantum mechanics ($d = 0$) holds.**
 
 ---
 
 ### 3. Phase 3: QPU vs Noise-Matched Classical RNG Experiment (`docs/PREREGISTRATION-qpu_vs_rng.md`)
 * **Hypothesis:** Does a Gross–Pitaevskii fluid whose feedback comes from real QPU measurements (arm Q) evolve differently from an identical fluid whose feedback comes from a classical binomial random generator with the same encoding and in-situ measured readout error (arm C)?
-* **Design:**
+* **Design (including Amendment 1):**
   - Scripts: `scripts/qpu_vs_rng.py` and `scripts/qpu_vs_rng_analyze.py`, seed `20261108`.
   - $R = 20$ replicates, 40 iterations (burn-in 10), 1024 shots, 50 GPE steps per iteration.
-  - Fixed layout `[51, 52, 53]` on `ibm_marrakesh`.
-  - 1 job per iteration: 20 main circuits from Q fluids + 2 in-situ calibration circuits ($|000\rangle$ and $|111\rangle$) on physical qubits `[51, 52, 53]` (40 jobs in total).
+  - **Optimal Qubit Chain:** Fixed layout `[53, 54, 55]` on `ibm_marrakesh` (reassigned from `[51, 52, 53]` in Amendment 1 because Q51 exhibits a 15.9% readout error that could induce drift artifacts, whereas Q53, Q54, and Q55 feature 1.8%, 0.5%, and 0.4% readout errors respectively).
+  - 1 job per iteration: 20 main circuits from Q fluids + 2 in-situ calibration circuits ($|000\rangle$ and $|111\rangle$) on physical qubits `[53, 54, 55]` (40 jobs in total).
   - Arm C receives ideal probabilities distorted with the exact in-situ $P(1|0)$ and $P(0|1)$ measured in the same job, sampled binomially.
 * **Primary Decision Rule (Pre-registered):**
   - Unit: Replicate. $D_r = \text{mean } f_Q - \text{mean } f_C$ over iterations 11–40, where $f$ is mode centroid.

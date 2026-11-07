@@ -37,8 +37,9 @@
   "preregistration": "docs/PREREGISTRATION-c_live_simultaneous.md",
   "amendment": 2,
   "calibration_timestamps": {
-    "start": "2026-11-07 03:36:25+01:00",
-    "end": "2026-11-07 03:47:47+01:00",
-    "mid_run_update": "2026-11-07 03:47:47+01:00 (occurred between block 35 and 38; paired F/N blocks design guarantees unbiased difference d)"
+    "start_utc": "2026-11-07 02:36:25 UTC (03:36:25 CET)",
+    "calibration_update_utc": "2026-11-07 02:47:47 UTC (03:47:47 CET, corresponds to block 33)",
+    "queue_wait_note": "In block 38, arm N waited 18 minutes in queue after arm F due to backend job processing.",
+    "sensitivity_check": "Excluding blocks 33-38 (54 remaining blocks): mean d = -0.00017, s = 0.00346, t = -0.365, p = 0.72; results remain statistically indistinguishable from zero."
   }
 }

@@ -24,5 +24,13 @@
     "p<0.01": false,
     "both_halves_positive": false
   },
-  "verdict": "H1 NEM TAMOGATOTT (a tankonyvi d = 0 all)"
+  "verdict": "H1 NEM TAMOGATOTT (a tankonyvi d = 0 all)",
+  "sensitivity_excluding_blocks_33_38": {
+    "blocks_evaluated": 54,
+    "mean_diff": -0.0001718,
+    "sd_diff": 0.003462,
+    "t": -0.3647,
+    "p_two_sided": 0.7168,
+    "verdict": "Tankonyvi d = 0 valtozatlanul all (eredmeny invarians a sorbanallasra es a kalibracios pontra)"
+  }
 }
