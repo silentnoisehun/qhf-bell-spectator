@@ -41,7 +41,7 @@ This repository archives the complete, step-by-step preregistered experimental c
   - Standard deviation $s = 0.00399$ (shot-noise limited at 2048 shots)
   - $t = 0.4108$, $p_{\text{one-sided}} = 0.341$, $p_{\text{two-sided}} = 0.683$
   - First-half mean diff (blocks 0–29): $-0.00024$; Second-half mean diff (blocks 30–59): $+0.00067$
-  - **In-situ Calibration & Queue Sensitivity:** Initial calibration at `02:36:25 UTC` (`03:36:25 CET`). An automatic Heron calibration update occurred at `02:47:47 UTC` (`03:47:47 CET`), corresponding to block 33. In block 38, arm N waited 18 minutes in the backend queue after arm F due to transient backend scheduling. Excluding blocks 33–38 entirely (leaving 54 paired blocks): $d = -0.00017 \approx -0.0002$, $s = 0.00346$, $t = -0.365$, $p = 0.72$. The result is completely invariant to queue latency and calibration shifts.
+  - **In-situ Calibration & Queue Sensitivity:** Initial calibration at `02:36:25 UTC` (`03:36:25 CET`). An automatic Heron calibration update occurred at `02:47:47 UTC` (`03:47:47 CET`), corresponding to block 33. In block 38, arm N waited 18 minutes in the backend queue after arm F due to transient backend scheduling. Excluding blocks 33–38 entirely (leaving 54 paired blocks): $d = -0.00017 \approx -0.0002$, $s = 0.00346$, $t = -0.365$, $p = 0.72$. The result is unchanged by queue latency and calibration shifts.
   - **Decision:** All criteria for $H_1$ ($\Delta \ge 0.003, p < 0.01$, sign consistency) failed. **$H_1$ is NOT supported. Standard textbook quantum mechanics ($d = 0$) holds.**
 
 ---
